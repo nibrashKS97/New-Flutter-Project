@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "997439123163",
+    "project_id": "fir-flutter-anonymousauth",
+    "storage_bucket": "fir-flutter-anonymousauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997439123163:android:7e973025f2358a1c0826fe",
+        "android_client_info": {
+          "package_name": "com.example.firebase_anonymous_login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997439123163-72i6gcc9e3fchlq9rtai8lphh9a6c3m1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVpR3ORUSG1R5YFH0570ZAf8Kjm0zM6Uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997439123163-72i6gcc9e3fchlq9rtai8lphh9a6c3m1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
