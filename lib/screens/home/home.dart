@@ -13,9 +13,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  User? user = FirebaseAuth.instance.currentUser;
+
 
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
@@ -28,6 +32,27 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Container(
+                  child: Text (
+                    'Welcome USER: ' + user!.uid,
+                    style: TextStyle (color: Colors.white),
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Container(
+                  child: Text (
+                    '_____________________________',
+                    style: TextStyle (color: Colors.white),
+                  ),
+                ),
+              ),
+
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
@@ -162,7 +187,8 @@ class _HomeState extends State<Home> {
           Navigator.of(context).pop();
         } else {
           FirebaseAuth.instance.currentUser?.delete();
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => Authenticate()));
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) =>  Authenticate()), (route) => false);
         }
 
       },
