@@ -17,19 +17,22 @@ class _AnonLoginState extends State<AnonLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        elevation: 0.0,
-        title: Text('Login'),
+        backgroundColor: Colors.blueGrey,
+        elevation: 5.0,
+        title: Center(child: Text('Login'))
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 120.0),
+        padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 89.0),
         child: ElevatedButton(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
           ),
-          child: Text ('Anonymous Login'),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text ('Anonymous Login',textAlign: TextAlign.center,style: TextStyle (fontSize: 20),),
+          ),
           onPressed: () async {
             dynamic result = await _auth.logInAnon();
             if (result == null) {

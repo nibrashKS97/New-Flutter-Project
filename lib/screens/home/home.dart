@@ -1,4 +1,5 @@
 import 'package:firebase_anonymous_login/screens/authenticate/authenticate.dart';
+import 'package:firebase_anonymous_login/screens/leaderboard/leaderboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -21,10 +22,10 @@ class _HomeState extends State<Home> {
 
 
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
-        elevation: 0.0,
+        backgroundColor: Colors.blueGrey,
+        elevation: 5.0,
         title: Text('Home page'),
       ),
       body: Center (
@@ -34,12 +35,22 @@ class _HomeState extends State<Home> {
             children: [
 
               Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: Container(
-                  child: Text (
-                    'Welcome USER: ' + user!.uid,
-                    style: TextStyle (color: Colors.white),
-                  ),
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Text (
+                        'Welcome USER: ',
+                        style: TextStyle ( fontSize: 15,fontWeight: FontWeight.bold, color: Colors.black38),
+                      ),
+                    ),
+                    Container(
+                      child: Text (
+                        user!.uid,
+                        style: TextStyle (color: Colors.black38),
+                      ),
+                    ),
+                  ],
                 ),
               ),
 
@@ -47,20 +58,19 @@ class _HomeState extends State<Home> {
                 padding: const EdgeInsets.all(40.0),
                 child: Container(
                   child: Text (
-                    '_____________________________',
-                    style: TextStyle (color: Colors.white),
+                    '____________________________________',
+                    style: TextStyle (color: Colors.black38),
                   ),
                 ),
               ),
 
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
                 ),
-                child: Text ('Do Something'),
+                child: Text ('DO SOMETHING', style: TextStyle (color: Colors.white, fontSize: 20)),
                 onPressed: () {
                   if (_auth.currentUser!.isAnonymous){
-                    alertGuest (context);
                     print ('User logged in as Guest');
                   }
                   else {
@@ -69,21 +79,40 @@ class _HomeState extends State<Home> {
                 },
               ),
 
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton.icon(
+                  style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
+                  ),
+                  label: Text ('LEADERBOARD', style: TextStyle (fontSize: 20),),
+                  icon: Icon(Icons.leaderboard),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) =>  Leaderboard()));
+                  },
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(top:24.0,bottom: 40.0),
+                child: Container(
+                  child: Text (
+                    '____________',
+                    style: TextStyle (color: Colors.black38),
+                  ),
+                ),
+              ),
+
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
                 ),
                 child: Text ('LOGOUT and DELETE account'),
-                onPressed: () async {
-                  User? user = FirebaseAuth.instance.currentUser;
-                  await user?.delete();
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Authenticate()),
-                  );
+                onPressed: () { alertGuest(context);
                 },
               ),
+
             ]
         ),
       ),
@@ -118,35 +147,6 @@ class _HomeState extends State<Home> {
               ],
             ),
           ],
-          /*children: <Widget>[
-            Row (
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                ElevatedButton(
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                    ),
-                    child: Text(
-                      'Continue as Guest',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.red,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }),
-                ElevatedButton(
-                    child: Text(
-                      'Register',
-                      textAlign: TextAlign.center
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    })
-              ]
-            )
-          ],*/
         ),
     );
 
