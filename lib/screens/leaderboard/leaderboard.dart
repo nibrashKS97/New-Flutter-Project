@@ -70,10 +70,12 @@ class _LeaderboardState extends State<Leaderboard> {
         ),
       ),
 
-      bottomNavigationBar: Container(
+      bottomNavigationBar: SizedBox(
+        height: 80,
         child: BottomNavigationBar(
           backgroundColor: Colors.blueGrey,
           elevation: 20.0,
+          iconSize: 30.0,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.feed),
@@ -92,7 +94,6 @@ class _LeaderboardState extends State<Leaderboard> {
         ),
       ),
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         height: 85,
         width: 85,
@@ -105,178 +106,129 @@ class _LeaderboardState extends State<Leaderboard> {
         ),
 
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      body: Padding(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
+      body: Column(
+        children: [
+          Container(
+            child: Image.asset('assets/coverpage.jpg'),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20.0, top: 20),
+            child: Container(
+              child: Text('Distance Leaderboard',style: TextStyle (fontSize: 25.0, fontWeight: FontWeight.bold)),
             ),
-            Container(
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            child: Container(
               height: 1,
-              width: 200,
-              color: Colors.black12,
+              width: 100,
+              color: Colors.black45,
             ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
+          ),
+          Expanded (
+            child: Padding(
+              padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+              child: Scrollbar(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: [
+                    ListTile(
+                      title: Row(
+                        children: [
+                          Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
+                          Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      width: 200,
+                      color: Colors.black12,
+                    ),
+                    ListTile(
+                      title: Row(
+                        children: [
+                          Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
+                          Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      width: 200,
+                      color: Colors.black12,
+                    ),
+                    ListTile(
+                      title: Row(
+                        children: [
+                          Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
+                          Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      width: 200,
+                      color: Colors.black12,
+                    ),
+                    ListTile(
+                      title: Row(
+                        children: [
+                          Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
+                          Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      width: 200,
+                      color: Colors.black12,
+                    ),
+                    ListTile(
+                      title: Row(
+                        children: [
+                          Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
+                          Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      width: 200,
+                      color: Colors.black12,
+                    ),
+                    ListTile(
+                      title: Row(
+                        children: [
+                          Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
+                          Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      width: 200,
+                      color: Colors.black12,
+                    ),
+                    ListTile(
+                      title: Row(
+                        children: [
+                          Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
+                          Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                showTrackOnHover: true,
+                thickness: 8,
+                radius: Radius.circular(4),
+              )
             ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-            Container(
-              height: 1,
-              width: 200,
-              color: Colors.black12,
-            ),
-            ListTile(
-              title: Row(
-                children: [
-                  Expanded (child: Text('Nibrash Kazi Subah',style: TextStyle (fontSize: 18.0))),
-                  Text('0.00Km',style: TextStyle (fontSize: 18.0,fontWeight: FontWeight.bold), textAlign: TextAlign.right),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
